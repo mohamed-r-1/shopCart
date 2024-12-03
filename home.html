@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+<body>
+
+  <nav class="navbar bg-body-tertiary">
+    <div class="container">
+      <h2><a class="navbar-brand">Store</a></h2>
+      <div class="dropdown d-flex mb-3">
+        <button class="btn dropdown-toggle mt-3 me-3" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+          Options
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <li><a class="dropdown-item" href="cart.html">Go to Cart</a></li>
+          <li><a class="dropdown-item" href="#" id="logoutBtn">Logout</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container">
+    <h2>Welcome to the Store</h2>
+
+      <div id="products" class="row">
+        
+      </div>
+      
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  <script src="js/script.js"></script>
+  <script>
+      // Ensure the user is logged in
+      checkLogin();
+
+      const userEmail = localStorage.getItem('email');  // Get user's email
+
+      // Sample product data (this can be fetched from a server in real projects)
+      const products = [
+          { name: "Product 1", image: "images/imgOne.jpg", description: "Product 1 description", price: 10 },
+          { name: "Product 2", image: "images/imgTwo.jpg", description: "Product 2 description", price: 20 },
+          { name: "Product 3", image: "images/imgThree.jpg", description: "Product 3 description", price: 30 },
+          { name: "Product 4", image: "images/imgFour.jpg", description: "Product 4 description", price: 40 },
+          { name: "Product 5", image: "images/imgFive.jpg", description: "Product 5 description", price: 50 },
+          { name: "Product 6", image: "images/imgSix.jpg", description: "Product 6 description", price: 60 },
+          { name: "Product 7", image: "images/imgSeven.jpg", description: "Product 7 description", price: 70 },
+          { name: "Product 8", image: "images/imgEight.jpg", description: "Product 8 description", price: 80 },
+          { name: "Product 9", image: "images/imgNine.jpg", description: "Product 9 description", price: 90 }
+      ];
+
+      const productsContainer = document.getElementById('products');
+      
+      // Dynamically load products into the page
+      products.forEach((product, index) => {
+          const productDiv = document.createElement('div');
+          productDiv.className = 'col-4';
+          productDiv.innerHTML = `
+              <div class="card">
+                  <img src="${product.image}" class="card-img-top" alt="${product.name}">
+                  <div class="card-body">
+                      <h5 class="card-title">${product.name}</h5>
+                      <p class="card-text">${product.description}</p>
+                      <p class="card-text">Price: $${product.price}</p>
+                      <button class="btn btn-primary" onclick="addToCart(${index}, '${userEmail}')">Add to Cart</button>
+                  </div>
+              </div>
+          `;
+          productsContainer.appendChild(productDiv);
+      });
+
+      // Logout button functionality
+      document.getElementById('logoutBtn').addEventListener('click', logout);
+  </script>
+</body>
+</html>

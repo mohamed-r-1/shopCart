@@ -1,0 +1,99 @@
+/* Global Styles */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f8f9fa;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Container for centering content */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Form Login */
+
+.form {
+  width: 400px;
+  background-color: rgba(255, 255, 255, 0.13);
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  border-radius: 10px;
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
+  padding: 50px 35px;
+}
+
+.form h2 {
+  font-size: 32px;
+  font-weight: 500;
+  line-height: 42px;
+  text-align: center;
+}
+
+.form label {
+  display: block;
+  margin-top: 30px;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.form input {
+  display: block;
+  height: 50px;
+  width: 100%;
+  background-color: rgba(255,255,255,0.07);
+  border-radius: 3px;
+  padding: 0 10px;
+  margin-top: 8px;
+  font-size: 14px;
+  font-weight: 300;
+}
+
+.form button {
+  margin-top: 50px !important;
+  width: 100%;
+  padding: 15px 0;
+  font-weight: 600;
+  border-radius: 5px !important;
+  background-color: cornflowerblue;
+}
+
+/* Header styles */
+h2 {
+  color: #343a40;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+/* Card styles for products */
+.card {
+  margin-bottom: 20px;
+}
+
+/* Make product images responsive */
+.card img {
+  width: 100%;
+  height: auto;
+}
+
+/* Styling for the total price */
+#totalPrice {
+  color: #28a745;
+  font-weight: bold;
+}
+
+@media (max-width: 430px) {
+  .col-4 {
+    width: 100% !important;
+  }
+  .form {
+    width: 335px;
+  }
+}
